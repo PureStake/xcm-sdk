@@ -14,6 +14,25 @@ const xcmDeliveryFeeAmount = 0.036;
 export const polkadotAssetHubConfig = new ChainConfig({
   assets: [
     new AssetConfig({
+      asset: dot,
+      balance: BalanceBuilder().substrate().system().account(),
+      destination: moonbeam,
+      destinationFee: {
+        amount: FeeBuilder().assetManager().assetTypeUnitsPerSecond(),
+        asset: dot,
+        balance: BalanceBuilder().substrate().system().account(),
+      },
+      extrinsic: ExtrinsicBuilder()
+        .polkadotXcm()
+        .limitedReserveTransferAssets(1)
+        .here(),
+      fee: {
+        asset: dot,
+        balance: BalanceBuilder().substrate().system().account(),
+        xcmDeliveryFeeAmount,
+      },
+    }),
+    new AssetConfig({
       asset: usdt,
       balance: BalanceBuilder().substrate().assets().account(),
       destination: moonbeam,
