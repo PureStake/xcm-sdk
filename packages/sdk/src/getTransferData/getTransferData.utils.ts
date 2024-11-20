@@ -126,6 +126,7 @@ export function validateSovereignAccountBalances({
   ) {
     return;
   }
+  console.log('sovereignAccountBalances', destination.sovereignAccountBalances);
   const { feeAssetBalance, transferAssetBalance } =
     destination.sovereignAccountBalances;
 
