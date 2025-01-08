@@ -570,7 +570,6 @@ Defines options to initialize the SDK, including EVM and Polkadot signers and a 
 
 - `evmSigner` ++"EvmSigner"++ [:material-link-variant:](#the-evm-signer-type) - The signer for transfers involving EVM chains
 - `polkadotSigner` ++"Signer | IKeyringPair"++ [:material-link-variant:](#the-polkadot-signer-type) - The signer for transfers involving non-EVM chains
-- `configService` ++"IConfigService"++ [:material-link-variant:](#the-config-service-object) - The custom configuration service
 
 </div>
 
@@ -831,7 +830,7 @@ Defines the fees for a particular asset on the destination chain.
 </div>
 
 ```js title="Example"
-// The Desintation Fee Asset Config object
+// The Destination Fee Asset Config object
 // For configuring USDT to be sent from
 // the Polkadot Asset Hub to Moonbeam
 {

@@ -66,20 +66,26 @@ const hash = await dataViaGetTransferDataMethod.transfer('INSERT_TRANSFER_AMOUNT
 ```bash
 git clone git@github.com:moonbeam-foundation/xcm-sdk.git
 cd xcm-sdk
-npm i
+pnpm install
 cd examples/sdk-simple
 
 # edit index.ts by adding your accounts
 
-npm start
+pnpm run start
 ```
 
 # Contributing
 
 ```bash
 git clone git@github.com:moonbeam-foundation/xcm-sdk.git
-npm i
-npm run dev
+pnpm install
+pnpm run dev
+```
+
+Optionally, you can install the `pre-commit` hook to run the linter and tests before committing:
+
+```bash
+pnpm lefthook install
 ```
 
 # Tests
@@ -87,7 +93,7 @@ npm run dev
 ## Unit tests
 
 ```bash
-npm run test
+pnpm run test
 ```
 
 ## Acceptance tests
@@ -96,7 +102,7 @@ npm run test
 cp .env.example .env
 # add private key and suri to .env file
 
-npm run test:acc
+pnpm run test:acc
 ```
 
 # Release
@@ -106,7 +112,7 @@ To create a dev version go to GitHub actions and run `publish dev versions` work
 To create a release version run:
 
 ```bash
-npm run changeset
+pnpm run changeset
 ```
 
 # Testing the change in the SDK locally
@@ -114,17 +120,19 @@ npm run changeset
 Build the project:
 
 ```bash
-npm run build
+pnpm run build
 ```
 
+Link the SDK:
+
 ```bash
-npm run link
+pnpm run clean && pnpm run build && pnpm run link
 ```
 
 In your project where you would like to test the changes:
 
 ```bash
-npm link @moonbeam-network/xcm-types @moonbeam-network/xcm-utils @moonbeam-network/xcm-builder @moonbeam-network/xcm-config @moonbeam-network/xcm-sdk
+pnpm link @moonbeam-network/xcm-types @moonbeam-network/xcm-utils @moonbeam-network/xcm-builder @moonbeam-network/xcm-config @moonbeam-network/xcm-sdk
 ```
 
 If you need you can link other packages too.
@@ -132,5 +140,5 @@ If you need you can link other packages too.
 After testing is done, unlink the SDK:
 
 ```bash
-npm unlink @moonbeam-network/xcm-types @moonbeam-network/xcm-utils @moonbeam-network/xcm-builder @moonbeam-network/xcm-config @moonbeam-network/xcm-sdk
+pnpm unlink @moonbeam-network/xcm-types @moonbeam-network/xcm-utils @moonbeam-network/xcm-builder @moonbeam-network/xcm-config @moonbeam-network/xcm-sdk
 ```
